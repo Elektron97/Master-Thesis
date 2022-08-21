@@ -25,4 +25,4 @@ f = d/L;
 
 %% Forward Kinematics 
 % H = forwardKinematics(eye(4), eye(4), alpha, L, d)
-% H = forwardKinematics(eye(4), eye(4), 0, L, d)
+H = forwardKinematics(eye(4), eye(4), 0, L, d)
