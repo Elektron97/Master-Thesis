@@ -24,5 +24,5 @@ d = [d1 d2 d3 d4 d5 d6]';
 f = d/L;
 
 %% Forward Kinematics 
-% H = forwardKinematics(eye(4), eye(4), alpha, L, d)
-H = forwardKinematics(eye(4), eye(4), 0, L, d)
+H = forwardKinematics(eye(4), eye(4), alpha, L, d);
+% H = forwardKinematics(eye(4), eye(4), 0, L, d)
