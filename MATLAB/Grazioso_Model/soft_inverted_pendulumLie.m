@@ -30,10 +30,12 @@ Ha0 = eye(4);
 %% Forward Kinematics 
 H = forwardKinematics(Ha, Ha0, alpha, L, d);
 
+Hb0 = forwardKinematics(Ha, Ha0, L, L, d);
 %% Inverse Kinematics
 % d_inv = inverseKinematics(eye(4), eye(4), H, eye(4)); 
 
 %% Plot Robot
-% plotSoRo(rand(6, 1), 1, 0.1)
+plotSoRo(rand(6, 1), 1, 0.1)
 
 %% Differential Kinematics
+% J_alpha = softJacobian(alpha, d, L, Ha0, Hb0);
