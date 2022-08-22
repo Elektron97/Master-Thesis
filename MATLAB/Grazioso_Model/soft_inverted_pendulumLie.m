@@ -23,6 +23,12 @@ d = [d1 d2 d3 d4 d5 d6]';
 % Deformation Vector f
 f = d/L;
 
+%% Initial Configuration
+Ha = eye(4);
+Ha0 = eye(4);
+
 %% Forward Kinematics 
-H = forwardKinematics(eye(4), eye(4), alpha, L, d);
-% H = forwardKinematics(eye(4), eye(4), 0, L, d)
+H = forwardKinematics(Ha, Ha0, alpha, L, d);
+
+%% Plot Robot
+% plotSoRo(rand(6, 1), 1, 0.1)
