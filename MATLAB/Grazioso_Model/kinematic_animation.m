@@ -24,12 +24,6 @@ Ha = eye(4);
 Hb0 = forwardKinematics(Ha, Ha0, L, L, d(:, 1));
 alpha = L;
 
-%% Compute Twist at the tip
-for i = 1:length(t)
-    J = softJacobian(alpha, d(:, i), L, Ha0, Hb0);
-    eta(:, i) = J*d_dot(:, i);
-end
-
 %% Animation
 for i = 1:length(t)
 %     subplot(2, 2, [1 3])
