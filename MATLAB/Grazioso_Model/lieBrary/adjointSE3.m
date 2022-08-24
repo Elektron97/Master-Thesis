@@ -16,7 +16,7 @@ if nargin > 1
         AdH = [R, t_tilde*R; zeros(3, 3), R]*h;
     else
         % hat form
-        AdH = H*skew(h)*inv(H)
+        AdH = H*skew(h)*invSE3(H);
     end
 
 else
