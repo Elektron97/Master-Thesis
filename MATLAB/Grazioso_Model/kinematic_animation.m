@@ -13,7 +13,7 @@ time_step = (100*freq)^(-1);
 end_time = 1;
 omega = 2*pi*freq;
 
-L = 1;
+L = 0.5;
 
 t = 0:time_step:0.1;
 d = (L/sqrt(3))*[sin(omega*t); cos(omega*t); sin(omega*t); cos(omega*t); sin(omega*t); cos(omega*t)];
@@ -27,24 +27,30 @@ alpha = L;
 for i = 1:length(t)
     eta(:, i) = softJacobian(alpha, d(:, i), L, Ha0, Hb0)*d_dot(:, i);
 end
+
+plot(t, eta, 'r')
+hold on
+plot(t, d_dot, 'b')
+hold off
+grid on
 %% Animation
-for i = 1:length(t)
-%     subplot(2, 2, [1 3])
-%     plotSoRo(d(:, i), L, 0.01);
+% for i = 1:length(t)
+% %     subplot(2, 2, [1 3])
+% %     plotSoRo(d(:, i), L, 0.01);
+% %     
+% %     subplot(2, 2, 2)
+% %     plot(t(1:i), d(:, 1:i))
+% %     grid on
+% %     title("Relative Deformation")
+% %     xlabel("time [s]")
+% %     
+% %     subplot(2, 2, 4)
+% %     plot(t(1:i), eta(:, 1:i))
+% %     grid on
+% %     title("Derivative of Deformation")
+% %     xlabel("time [s]")
+% % %     ylim([-500, 500])
 %     
-%     subplot(2, 2, 2)
-%     plot(t(1:i), d(:, 1:i))
-%     grid on
-%     title("Relative Deformation")
-%     xlabel("time [s]")
-%     
-%     subplot(2, 2, 4)
-%     plot(t(1:i), eta(:, 1:i))
-%     grid on
-%     title("Derivative of Deformation")
-%     xlabel("time [s]")
-% %     ylim([-500, 500])
-    
-    plotSoRo(d(:, i), L, 0.1);
-    drawnow
-end
+%     plotSoRo(d(:, i), L, 0.1);
+%     drawnow
+% end
