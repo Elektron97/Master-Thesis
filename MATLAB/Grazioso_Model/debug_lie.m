@@ -6,9 +6,14 @@ clc
 addpath("lieBrary")
 addpath("grazioso_lib")
 
+%% Exponential Map
+% syms l1 theta real
+% twist = [l1 0 0 0 0 1]';
+% g = expSE3(twist)
+
 %% Debug lieBrary
-test = [1 0 0 1 0 0]';
-test_rand = randn(6, 1);
+% test = [1 0 0 1 0 0]';
+test = randn(6, 1);
 syms a b c d e f real
 test_sym = [a b c d e f]';
 
@@ -25,3 +30,7 @@ test_sym = [a b c d e f]';
 T = TSE3(test);
 invT = invTSE3(test);
 T*invT
+
+% debug_plus_minus = TSO3(test(4:end))*Tuw_minus(test(1:3), test(4:end)) + Tuw_plus(test(1:3), test(4:end))*invTSO3(test(4:end))
+
+
