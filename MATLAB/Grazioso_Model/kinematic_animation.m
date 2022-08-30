@@ -24,6 +24,9 @@ Ha = eye(4);
 Hb0 = forwardKinematics(Ha, Ha0, L, L, d(:, 1));
 alpha = L;
 
+for i = 1:length(t)
+    eta(:, i) = softJacobian(alpha, d(:, i), L, Ha0, Hb0)*d_dot(:, i);
+end
 %% Animation
 for i = 1:length(t)
 %     subplot(2, 2, [1 3])
