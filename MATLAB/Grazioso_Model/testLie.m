@@ -40,4 +40,4 @@ Hb0 = [eye(3), [0; 0; L]; zeros(1, 3), 1];
 % plotSoRo([0 0 1 0 0 0]', 1, 0.1)
 
 %% Differential Kinematics
-% J_alpha = softJacobian(alpha, d, L, Ha0, Hb0);
+J_alpha = softJacobian(alpha, d, L, Ha0, Hb0);
