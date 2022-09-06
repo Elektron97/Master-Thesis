@@ -11,7 +11,7 @@ clc
 % E = 0.061424e6;     % Young Modulus
 % v = 0.5;            % Poissons Ratio
 % damp = 0.112e5;     % Damping
-
+% dampR = 0.02;       % Damping of Rotoidal joint
 %% Links Definition
 % L1 = SorosimLink;
 % load("Link_Properties.mat")
