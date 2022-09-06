@@ -13,4 +13,4 @@ load("R_sip.mat");
 % T1.statics;
 
 %% Dynamics Solution
-T1.dynamics;
+% T1.dynamics;
