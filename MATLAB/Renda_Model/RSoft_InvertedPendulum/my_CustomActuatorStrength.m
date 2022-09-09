@@ -10,9 +10,47 @@ function u = my_CustomActuatorStrength(Tr,q,g,J,t,qd,eta,Jd,M,C,F,Bq)
 %M,C,F,Bq: generalized mass, coriolis, force, and actuation matrices.
 %u should be (nactx1) column vector where nact is the total number of actuators.
 
+% N DoF
+ndof = Tr.ndof;
+% Actuation
 nact = Tr.nact;
 u = zeros(nact,1);
 
-%% Design Custom Actuator
+%% %%%%%%%%%%%%%%%%% Design Custom Actuator %%%%%%%%%%%%%%%%%%%%%
+
+%% 1) First Controller: Collocated Feedback Linearization
+% This controller is the simplest controller can be implemented
+% in a Under-Actuated System, like Soft Inverted Pendulum.
+% The collocated Feedback Linearization control the rotoidal joint
+% at the base of R-Soft Inverted Pendulum.
+
+%% Decompose Dynamic Equations
+% Useful Matrix
+K = Tr.K;
+D = Tr.D;
+G = -F;
+h = C*qd + K*q + D*qd; 
+
+hr = h(1);
+ho = h(2:3);
+
+Mrr = M(1, 1);
+Mro = M(1, 2:3);
+Moo = M(2:3, 2:3);
+invMoo = pinv(Moo);
+
+Gr = G(1);
+Go = G(2:3);
+
+% Desired Trajectory
+thetaRdes_2dot = 0;
+thetaRdes_dot = 0;
+thetaRdes = pi/4;
+
+Kd = 5;
+Kp = 20;
+
+v = thetaRdes_2dot + Kd*(thetaRdes_dot - qd(1)) + Kp*(thetaRdes - q(1));
+u = (Mrr - Mro*invMoo*Mro')*v + hr + Gr - Mro*invMoo*(ho + Go);
 
 end
