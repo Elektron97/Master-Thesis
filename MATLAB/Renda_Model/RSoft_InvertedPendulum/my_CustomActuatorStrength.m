@@ -53,4 +53,12 @@ Kp = 20;
 v = thetaRdes_2dot + Kd*(thetaRdes_dot - qd(1)) + Kp*(thetaRdes - q(1));
 u = (Mrr - Mro*invMoo*Mro')*v + hr + Gr - Mro*invMoo*(ho + Go);
 
+%% Saturation
+% MAX_TAU = 5.5; % Nm
+% 
+% if(abs(u) > MAX_TAU)
+%     u = sign(u)*MAX_TAU;
+% end
+
+
 end
