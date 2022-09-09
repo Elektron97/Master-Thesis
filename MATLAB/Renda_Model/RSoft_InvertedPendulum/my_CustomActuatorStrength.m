@@ -43,9 +43,15 @@ Gr = G(1);
 Go = G(2:3);
 
 % Desired Trajectory
+% start_time = 15;
+% thetaRdes_2dot = -(2*t - 2*start_time)/((t - start_time)^2 + 1)^2;
+% thetaRdes_dot = 1/((t - start_time)^2 + 1);
+% thetaRdes = atan(t - start_time);
+
+start_time = 15;
 thetaRdes_2dot = 0;
-thetaRdes_dot = 0;
-thetaRdes = pi/4;
+thetaRdes_dot = pi/4;
+thetaRdes = pi/4*t;
 
 Kd = 5;
 Kp = 20;
