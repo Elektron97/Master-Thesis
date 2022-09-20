@@ -53,7 +53,7 @@ Go = G(2:3);
 % thetaRdes_dot = 1/((t - start_time)^2 + 1);
 % thetaRdes = atan(t - start_time);
 
-% % step(t - 15)
+% step(t - 15)
 start_time = 15;
 if(t <= start_time)
     thetaRdes = -pi/2;
