@@ -4,9 +4,9 @@ clear all
 clc
 
 %% Parameters
-length = 0.5;       % Length of SIP
-radius = 0.05;      % Radius of SIP
-k_rev = 0.01;       % Joint Stiffness
+length = 1.0;       % Length of SIP
+radius = 0.1;      % Radius of SIP
+k_rev = 0;       % Joint Stiffness
 rho = 1070;         % Density
 E = 0.061424e6;     % Young Modulus
 v = 0.5;            % Poissons Ratio
@@ -18,9 +18,9 @@ dampR = 0.02;       % Damping of Rotoidal joint
 
 %% Open Chain Definition
 % T1 = SorosimLinkage(L1);
-load("R_sip.mat")
+% load("R_sip2.mat")
 %% Plot Initial Configuration
 % T1.plotq0
 
 %% Save R-SIP
-% save("R_sip.mat", 'T1')
+% save("R_sip2.mat", 'T1')
