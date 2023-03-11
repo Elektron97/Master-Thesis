@@ -6,10 +6,16 @@ clc
 %% Add Functions
 load("R_sip.mat");
 
-% % Computational cost of dynamics matrices
-% tic 
-% GeneralizedMassMatrix(T1, [pi/4; pi/4; -pi/4]);
-% toc
+% Computational cost of dynamics matrices
+tic 
+GeneralizedMassMatrix(T1, [pi/4; pi/4; -pi/4]);
+inertia_comp = toc;
+disp("Inertia Matrix Computational time:" + num2str(inertia_comp) + " seconds.");
+
+tic 
+myGravity(T1, [pi/4; pi/4; -pi/4]);
+gravity_comp = toc;
+disp("Gravity Vector Computational time:" + num2str(gravity_comp) + " seconds.");
 
 
 % [Q0, Q1] = meshgrid(-100:0.1:100, -100:0.1:100);
