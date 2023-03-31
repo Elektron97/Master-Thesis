@@ -20,8 +20,7 @@ load("R_sip.mat");
 %% Computational Cost Analysis 3D
 % Define of Range of Values
 abs_range = 10;
-% n_try = 100;
-n_try = 1;
+n_try = 10;
 [Q0, Q1] = meshgrid(-abs_range:0.1:abs_range, -abs_range:0.1:abs_range);
 THETAR = 0*Q0;
 
@@ -39,7 +38,7 @@ end
 
 %% Plotting
 figure
-s = surf(THETA0, THETA1, inertia_comp);
+s = surf(Q0, Q1, inertia_comp);
 s.EdgeColor = 'none';
 xlabel("q_0");
 ylabel("q_1");
