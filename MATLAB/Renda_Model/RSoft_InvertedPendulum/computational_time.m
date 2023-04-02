@@ -20,9 +20,10 @@ load("R_sip.mat");
 %% Computational Cost Analysis 3D
 % Define of Range of Values
 abs_range = 10;
-n_try = 10;
+n_try = 1;
 [Q0, Q1] = meshgrid(-abs_range:0.1:abs_range, -abs_range:0.1:abs_range);
 THETAR = 0*Q0;
+% Q0 = 0*Q1;
 
 for i = 1:size(Q0, 1)
     for j = 1:size(Q1, 2)
