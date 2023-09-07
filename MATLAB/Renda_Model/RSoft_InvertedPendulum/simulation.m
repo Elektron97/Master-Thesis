@@ -4,7 +4,7 @@ clear all
 clc
 
 %% Select MATLAB or SIMULINK
-is_sim = false;
+is_sim = true;
 eqstatics = false;
 eq_feedback = false;
 
