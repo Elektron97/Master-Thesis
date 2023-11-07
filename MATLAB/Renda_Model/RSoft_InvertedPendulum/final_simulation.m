@@ -11,13 +11,13 @@ cd RSoft_InvertedPendulum
 %% Simulate
 load("dynamics_handle.mat");
 
-% % Master Thesis Simulation
-% q0 = zeros(3, 1);
-% q0d = zeros(3, 1);
-
-% Paper Simulation
-q0 = [0; pi/4; -pi/8];
+% Master Thesis Simulation
+q0 = zeros(3, 1);
 q0d = zeros(3, 1);
+
+% % Paper Simulation
+% q0 = [0; pi/4; -pi/8];
+% q0d = zeros(3, 1);
 
 % Load slx file
 slx_filename = 'R_SIPsim.slx';
