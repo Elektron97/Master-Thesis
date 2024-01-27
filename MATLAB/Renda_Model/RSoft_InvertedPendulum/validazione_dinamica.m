@@ -3,6 +3,11 @@ clear all
 close all
 clc
 
+% My startup
+cd ..
+my_startup
+cd RSoft_InvertedPendulum
+
 %% Add Functions
 load("R_sip.mat");
 
@@ -265,9 +270,11 @@ xlabel("q_0");
 ylabel("q_1");
 zlabel("\chi(M)");
 view(23, 21);
+set(gca, 'ZScale', 'log')
 %zlim([0, 1e+6]);
 colorbar
-title("Condition Number of Inertia Matrix (Strain)")
+set(gca, 'ColorScale', 'log')
+title("Condition Number of Inertia Matrix (SP)")
 
 %%%%%%%%%%%%%%%% Norm of Difference %%%%%%%%%%%%%%%
 % figure
