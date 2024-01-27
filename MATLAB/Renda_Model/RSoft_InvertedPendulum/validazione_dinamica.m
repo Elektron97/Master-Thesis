@@ -268,13 +268,13 @@ s5 = surf(Q0, Q1, condBr);
 s5.EdgeColor = 'none';
 xlabel("q_0");
 ylabel("q_1");
-zlabel("\chi(M)");
-view(23, 21);
+zlabel("log(\chi(M))");
+view(48, 13);
 set(gca, 'ZScale', 'log')
 %zlim([0, 1e+6]);
 colorbar
 set(gca, 'ColorScale', 'log')
-title("Condition Number of Inertia Matrix (SP)")
+% title("Condition Number of Inertia Matrix (SP)")
 
 %%%%%%%%%%%%%%%% Norm of Difference %%%%%%%%%%%%%%%
 % figure
