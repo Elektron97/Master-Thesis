@@ -18,7 +18,7 @@ load("dynamics_handle2.mat");
 % q0d = zeros(3, 1);
 
 % Paper Simulation
-q0 = [0; pi/4; -pi/8];
+q0 = [0; pi/4; -pi/4];
 q0d = zeros(3, 1);
 
 % Load slx file
