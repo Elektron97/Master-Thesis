@@ -33,17 +33,19 @@ disp("Damping: " + num2str(damp));
 
 %% Open Chain Definition
 % T1 = SorosimLinkage(L1);
+% T1.D(1, 1) = dampR;
+% T1.CAS = 1;
+
 load("R_sip2.mat")
 %% Plot Initial Configuration
 % T1.plotq0
 
 %% Save R-SIP
 % save("R_sip2.mat", 'T1')
-% save("R_sip_cp.mat", 'T1')
 
 %% Save function handle
-soft_dynamics = @(t, qqd) T1.derivatives(t, qqd, cell(T1.nact, 1));
-save("dynamics_handle2.mat")
+% soft_dynamics = @(t, qqd) T1.derivatives(t, qqd, cell(T1.nact, 1));
+% save("dynamics_handle2.mat")
 
 %% Simulation
 % q0 = [0; pi/4; -pi/4];
