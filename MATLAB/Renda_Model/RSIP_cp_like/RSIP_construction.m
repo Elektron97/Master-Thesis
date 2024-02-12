@@ -12,7 +12,7 @@ cd RSIP_cp_like
 L = 1.0;                   % Length of SIP
 radius = 0.05;                  % Radius of SIP
 k_rev = 0;                      % Joint Stiffness
-rho = 1/(pi*L*radius^2);    % Density
+rho = 1.0/(pi*L*radius^2);    % Density
 J_z = (pi/4)*(radius)^4;
 E = 1.0/J_z;                    % Young Modulus
 v = 0.5;                        % Poissons Ratio
@@ -28,7 +28,7 @@ disp("Damping: " + num2str(damp));
 
 %% Links Definition
 L1 = SorosimLink;
-save("Link_Properties2.mat");
+% save("Link_Properties2.mat");
 % load("Link_Properties2.mat");
 
 %% Open Chain Definition
@@ -41,11 +41,11 @@ T1.CAS = 1;
 % T1.plotq0
 
 %% Save R-SIP
-save("R_sip2.mat", 'T1')
+% save("R_sip2.mat", 'T1')
 
 %% Save function handle
 soft_dynamics = @(t, qqd) T1.derivatives(t, qqd, cell(T1.nact, 1));
-save("dynamics_handle2.mat")
+% save("dynamics_handle2.mat")
 
 %% Simulation
 q0 = [0; pi/4; -pi/4];
