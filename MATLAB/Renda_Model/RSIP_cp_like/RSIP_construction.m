@@ -27,9 +27,9 @@ disp("Young Modulus: " + num2str(E));
 disp("Damping: " + num2str(damp));
 
 %% Links Definition
-L1 = SorosimLink;
+% L1 = SorosimLink;
 % save("Link_Properties2.mat");
-% load("Link_Properties2.mat");
+load("Link_Properties2.mat");
 
 %% Open Chain Definition
 T1 = SorosimLinkage(L1);
