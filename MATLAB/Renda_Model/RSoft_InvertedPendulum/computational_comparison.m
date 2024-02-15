@@ -22,7 +22,7 @@ y = [inertia_santina, inertia_renda; gravity_santina gravity_renda];
 
 figure
 bar(x, y)
-title("Computational Time of Dynamics Matrices");
+% title("Computational Time of Dynamics Matrices");
 ylabel("Comp. Time [s]");
 legends = legend("Curv. Param.", "Strain Param.");
 set(legends,...

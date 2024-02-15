@@ -4,28 +4,29 @@ close all
 clc
 
 %% Load Dynamics Solution
-load("DynamicsSolution.mat");
-
-%% Plot Trajectory
-plot(t, qqd(:, 1:3));
-grid on
-title("Controlled R-SIP GE-approach: Step traj.")
-xlabel("time [s]")
-ylabel("q")
+load("step_result.mat");
+% load("atan_result.mat");
 
 %% Desired Trajectory
 start_time = 15;
-for i = 1:length(t)
-%     theta_rd(i) = atan(t(i) - start_time);
 
-    if t(i) <= start_time
-        theta_rd(i) = -pi/2;
+for i = 1:length(result.simout.time)
+    % desired_traj(i) = atan(result.simout.time(i) - start_time);
+
+    if result.simout.time(i) <= start_time
+        desired_traj(i) = -pi/2;
     else
-        theta_rd(i) = pi/2;
+        desired_traj(i) = pi/2;
     end
 end
 
+%% Plot Trajectory
+figure
+plot(result.simout.time, result.simout.data, 'LineWidth', 2.0);
+grid on
+xlabel("Time [s]");
+ylabel("q");
 hold on
-plot(t, theta_rd)
+plot(result.simout.time, desired_traj, '--', 'LineWidth', 2.0);
 hold off
-legend("\theta_{r}", "q_0", "q_1", "\theta_{rd}")
+legend("\theta_r", "q_0", "q_1", "\theta_{rd}")

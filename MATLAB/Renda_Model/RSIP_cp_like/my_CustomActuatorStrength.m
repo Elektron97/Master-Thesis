@@ -47,8 +47,8 @@ Gr = G(1);
 Go = G(2:3);
 
 %% Desired Trajectory
-% % atan(t - 15)
-% start_time = 15;
+% atan(t - 15)
+start_time = 15;
 % thetaRdes_2dot = -(2*t - 2*start_time)/((t - start_time)^2 + 1)^2;
 % thetaRdes_dot = 1/((t - start_time)^2 + 1);
 % thetaRdes = atan(t - start_time);
@@ -74,8 +74,16 @@ thetaRdes_dot = 0;
 % thetaRdes_dot = 0;
 % thetaRdes = 0;
 
-Kd = 5;
-Kp = 2;
+%% LQR: optimal gains PD
+A_lin = [0 1; 0 0];
+B_lin = [0; -1];
+Q = 100*eye(2);
+R = 100;
+
+% lqr() gives K | A - BK
+[K, ~, ~] = lqr(A_lin, B_lin, Q, R);
+Kp = -K(1);
+Kd = -K(2);
 
 v = thetaRdes_2dot + Kd*(thetaRdes_dot - qd(1)) + Kp*(thetaRdes - q(1));
 u = (Mrr - Mro*invMoo*Mro')*v + hr + Gr - Mro*invMoo*(ho + Go);

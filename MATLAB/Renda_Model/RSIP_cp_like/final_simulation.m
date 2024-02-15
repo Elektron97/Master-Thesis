@@ -1,24 +1,19 @@
 %%%%%%%%%%%% Simulation and Analysis %%%%%%%%%
 close all
-clear all
+clear
 clc
 
 % My startup
-cd ..
-my_startup
-cd RSIP_cp_like
+% cd ..
+% my_startup
+% cd RSIP_cp_like
 
 %% Simulate
-% load("R_sip_cp.mat")
-% load("dynamics_handle.mat");
-load("dynamics_handle2.mat");
-
-% % Master Thesis Simulation
-% q0 = zeros(3, 1);
-% q0d = zeros(3, 1);
+load("R_sip2.mat")
+soft_dynamics = @(t, qqd) T1.derivatives(t, qqd, cell(T1.nact, 1));
 
 % Paper Simulation
-q0 = [0; pi/4; -pi/8];
+q0 = [0; pi/4; -pi/4];
 q0d = zeros(3, 1);
 
 % Load slx file
