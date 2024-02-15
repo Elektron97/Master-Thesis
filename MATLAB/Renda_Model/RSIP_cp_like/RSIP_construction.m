@@ -12,7 +12,8 @@ cd RSIP_cp_like
 L = 1.0;                   % Length of SIP
 radius = 0.05;                  % Radius of SIP
 k_rev = 0;                      % Joint Stiffness
-rho = 1.0/(pi*L*radius^2);    % Density
+% rho = 1.0/(pi*radius^2);    % Density
+rho = 1141.5728;    % Density
 J_z = (pi/4)*(radius)^4;
 E = 1.0/J_z;                    % Young Modulus
 v = 0.5;                        % Poissons Ratio
@@ -29,7 +30,10 @@ disp("Damping: " + num2str(damp));
 %% Links Definition
 % L1 = SorosimLink;
 % save("Link_Properties2.mat");
-load("Link_Properties2.mat");
+% load("Link_Properties2.mat");
+load("Link_Properties3.mat");
+
+L1.Ms{1}(1:end-6*2, :) = zeros(L1.nGauss{1}*6-6*2, 6);
 
 %% Open Chain Definition
 T1 = SorosimLinkage(L1);
@@ -60,8 +64,8 @@ result = sim(slx_filename, 'ReturnWorkspaceOutputs','on'); %simulate and extract
 n_data = length(result.simout.time);
 
 for i = 1:n_data
-%     desired_traj(i) = step_traj(result.simout.time(i));
-    desired_traj(i) = atan_traj(result.simout.time(i));
+    desired_traj(i) = step_traj(result.simout.time(i));
+%     desired_traj(i) = atan_traj(result.simout.time(i));
 end
 
 %% Plot Results

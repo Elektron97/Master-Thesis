@@ -49,20 +49,20 @@ Go = G(2:3);
 %% Desired Trajectory
 % atan(t - 15)
 start_time = 15;
-thetaRdes_2dot = -(2*t - 2*start_time)/((t - start_time)^2 + 1)^2;
-thetaRdes_dot = 1/((t - start_time)^2 + 1);
-thetaRdes = atan(t - start_time);
+% thetaRdes_2dot = -(2*t - 2*start_time)/((t - start_time)^2 + 1)^2;
+% thetaRdes_dot = 1/((t - start_time)^2 + 1);
+% thetaRdes = atan(t - start_time);
 
-% % step(t - 15)
-% start_time = 15;
-% if(t <= start_time)
-%     thetaRdes = -pi/2;
-% else
-%     thetaRdes = pi/2;
-% end
-% 
-% thetaRdes_2dot = 0;
-% thetaRdes_dot = 0;
+% step(t - 15)
+start_time = 15;
+if(t <= start_time)
+    thetaRdes = -pi/2;
+else
+    thetaRdes = pi/2;
+end
+
+thetaRdes_2dot = 0;
+thetaRdes_dot = 0;
 
 % % linear theta_rdes
 % thetaRdes_2dot = 0;
