@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%% Simulation of R-Soft Inverted Pendulum %%%%%%%%%%%%%%%%%
-close all
-clear all
-clc
+% close all
+% clear all
+% clc
 
 % My startup
-cd ..
-my_startup
-cd RSIP_cp_like
+% cd ..
+% my_startup
+% cd RSIP_cp_like
 
 %% Parameters
 L = 1.0;                   % Length of SIP
@@ -28,12 +28,12 @@ disp("Young Modulus: " + num2str(E));
 disp("Damping: " + num2str(damp));
 
 %% Links Definition
-% L1 = SorosimLink;
+L1 = SorosimLink;
 % save("Link_Properties2.mat");
 % load("Link_Properties2.mat");
-load("Link_Properties3.mat");
+% load("Link_Properties3.mat");
 
-L1.Ms{1}(1:end-6*2, :) = zeros(L1.nGauss{1}*6-6*2, 6);
+% L1.Ms{1}(1:end-6*2, :) = zeros(L1.nGauss{1}*6-6*2, 6);
 
 %% Open Chain Definition
 T1 = SorosimLinkage(L1);
@@ -42,7 +42,7 @@ T1.CAS = 1;
 
 % load("R_sip2.mat")
 %% Plot Initial Configuration
-% T1.plotq0
+T1.plotq0
 
 %% Save R-SIP
 % save("R_sip2.mat", 'T1')
