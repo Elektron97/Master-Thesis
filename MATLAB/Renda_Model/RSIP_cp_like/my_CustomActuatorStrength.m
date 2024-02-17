@@ -53,16 +53,27 @@ start_time = 15;
 % thetaRdes_dot = 1/((t - start_time)^2 + 1);
 % thetaRdes = atan(t - start_time);
 
-% step(t - 15)
-start_time = 15;
-if(t <= start_time)
-    thetaRdes = -pi/2;
-else
-    thetaRdes = pi/2;
-end
+% % step(t - 15)
+% start_time = 15;
+% if(t <= start_time)
+%     thetaRdes = -pi/2;
+% else
+%     thetaRdes = pi/2;
+% end
+% 
+% thetaRdes_2dot = 0;
+% thetaRdes_dot = 0;
 
-thetaRdes_2dot = 0;
-thetaRdes_dot = 0;
+magnitude = pi + pi/6;
+freq = 0.1;
+phase = 0.0;
+% mean_value = pi/2;
+mean_value = 0.0;
+
+% theta_des
+thetaRdes = mean_value + magnitude*sin((2*pi*freq)*t + phase);
+thetaRdes_dot = magnitude*(2*pi*freq)*cos((2*pi*freq)*t + phase);
+thetaRdes_2dot = -magnitude*((2*pi*freq)^2)*sin((2*pi*freq)*t + phase);
 
 % % linear theta_rdes
 % thetaRdes_2dot = 0;
